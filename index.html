@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+
+<body>
+
+    <div class="inputbox-container" id="backGround">
+
+        <div class="inputbox">
+            <div class="pad-500">
+                <h1>Password Strength Checker</h1>
+                <div class="description">
+                    <p> A <b>strong</b> password must have:</p>
+                    over <b>ten</b> characters, both capital and small letters and a combination of letters, numbers,
+                    and special characters (where allowed). The password should be hard to guess as well.</span>
+                </div>
+                <input type="text" name="Password" id="passInp" class="Password" placeholder="Type Password">
+            </div>
+        </div>
+    </div>
+    <script>
+
+        var backgroundcolor = document.getElementById('backGround')
+
+        var passInput = document.getElementById('passInp')
+
+        passInput.onkeyup = () => {
+
+            var userPassword = passInput.value;
+            var pattern = /[a-z]/g;
+            var pattern2 = /[A-Z]/g;
+            var pattern = /[0-9]/g;
+            var pattern = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+            if ((userPassword.match(pattern)) && (userPassword.match(pattern2)) && (userPassword.length >= 10)) {
+                backgroundcolor.classList.add("valid")
+                console.log("Valid")
+            }
+            else {
+                backgroundcolor.classList.remove("valid")
+                console.log("Invalid")
+            }
+
+        }
+    </script>
+</body>
+
+</html>
